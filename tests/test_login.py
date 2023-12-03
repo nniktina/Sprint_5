@@ -23,7 +23,7 @@ class TestLogin:
 
     def test_login_from_personal_account_button(self, driver):
         driver.get(data_for_test.main_page_url)
-        driver.find_element(By.XPATH, ".//header/nav/a").click()
+        driver.find_element(By.XPATH, ".//*[@href='/account']").click()
         WebDriverWait(driver, 3).until(expected_conditions.url_to_be('https://stellarburgers.nomoreparties.site/login'))
         TestLogin.login_helper(driver)
         WebDriverWait(driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, './/h1[text()="Соберите бургер"]')))
