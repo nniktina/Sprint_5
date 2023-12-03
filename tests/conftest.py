@@ -1,11 +1,20 @@
 import pytest
 import string
 import random
+from selenium import webdriver
 
 
 @pytest.fixture
 def username():
     return "Имя Пользователя"
+
+
+@pytest.fixture()
+def driver():
+    driver = webdriver.Chrome()
+
+    yield driver
+    driver.quit()
 
 
 @pytest.fixture
