@@ -21,6 +21,6 @@ def test_logout_after_login():
     driver.find_element(By.XPATH, './/button[text()="Выход"]').click()
     WebDriverWait(driver, 5).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, 'Auth_link__1fOlj')))
 
-    assert driver.current_url == data_for_test.login_page_url
+    assert driver.find_element(By.XPATH, ".//button[text()='Войти']").is_displayed()
     driver.quit()
 
